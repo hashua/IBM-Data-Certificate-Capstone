@@ -18,7 +18,7 @@ app = dash.Dash(__name__)
 app.layout = html.Div(children=[html.H1('SpaceX Launch Records Dashboard',
                                         style={'textAlign': 'center', 'color': '#503D36',
                                                'font-size': 40}),
-                                # TASK 1: Add a dropdown list to enable Launch Site selection
+                                # TASK 1: Added a Launch Site Drop-down Input for the four different launch sites
                                 # The default select value is for ALL sites
                                 # dcc.Dropdown(id='site-dropdown',...)
                                 dcc.Dropdown(id='site-dropdown',
@@ -34,20 +34,20 @@ app.layout = html.Div(children=[html.H1('SpaceX Launch Records Dashboard',
                                             searchable=True),
                                 html.Br(),
 
-                                # TASK 2: Add a pie chart to show the total successful launches count for all sites
+                                # TASK 2: Added a pie chart to visualize launch success counts
                                 # If a specific launch site was selected, show the Success vs. Failed counts for the site
                                 html.Div(dcc.Graph(id='success-pie-chart')),
                                 html.Br(),
 
                                 html.P("Payload range (Kg):"),
-                                # TASK 3: Add a slider to select payload range
+                                # TASK 3: Added a range slider to select payload
                                 dcc.RangeSlider(id='payload-slider',
                                                 min=0,max=10000,step=1000,
                                                 value=[min_payload,max_payload],
                                                 marks={0: '0', 2500:'2500',5000:'5000',
                                                 7500:'7500', 10000: '10000'}),
 
-                                # TASK 4: Add a scatter chart to show the correlation between payload and launch success
+                                # TASK 4: Added a scatter plot to check the relationship between launch outcome and payload. 
                                 html.Div(dcc.Graph(id='success-payload-scatter-chart')),
                                 ])
 
